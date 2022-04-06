@@ -13,7 +13,7 @@
         <v-spacer></v-spacer>
 
         <v-toolbar-items>
-            <v-btn flat>Finalizar Dia</v-btn>
+            <v-btn flat @click="endDay">Finalizar Dia</v-btn>
             <v-menu offset-y>
                 <v-btn flat slot="activator">Salvar & Carregar</v-btn>
                 <v-list>
@@ -35,11 +35,20 @@
 </template>
 
 <script>
+
+import { mapActions } from 'vuex'
+
 export default {
     name: "Header",
     computed: {
         funds(){
             return this.$store.getters.funds
+        }
+    },
+    methods: {
+        ...mapActions(['randomizeStock']),
+        endDay(){
+            this.randomizeStock()
         }
     }
 }
