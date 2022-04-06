@@ -4,17 +4,17 @@ export default {
     state: {
         stocks: []
     },
-    mutation: {
+    mutations: {
         setStocks(state, stocks){
             state.stocks = stocks
         }
     },
     actions: {
         buyStock({ commit }, order){
-            commit()
+            commit('buyStock', order)
         },
         initStocks({ commit }){
-            commit('setStock', stocks)
+            commit('setStocks', stocks)
         }
     },
     getters: {
